@@ -135,9 +135,11 @@ makePersonObject(5, 'Leia', 'leia@leia.com');
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+
+function getName(object) {
+  console.log('Hello, my name is ' + object.name);
 }
+getName({id: 1, name: 'Leia', email: 'leia@leia.com'});
 
 
 /**
@@ -155,9 +157,14 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(array) {
+  for(i = 0; i < array.length; i++) {
+    if(array[i] === 'apple') {
+      console.log(i);
+    }
+  }
 }
+appleIndex(['orange', 'grape', 'apple', 'banana', 'mango']);
 
 /**
  * ### Challenge `isItAnApple`
@@ -174,9 +181,19 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+function isItAnApple(array) {
+  
+      for(i = 0; i < array.length; i++) {
+        if (array[i] === 'apple') {
+          array.splice(i, 1, 'true');
+        } else {
+          array.splice(i, 1, 'false');
+        }
+      }
+    console.log(array);
+   
 }
+isItAnApple(['orange','apple', 'banana', 'apples', 'apple', 'mango']);
 
 
 
@@ -231,10 +248,12 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(inventory, index) {
-  /* code here */
-}
 
+
+function getCarInfoByIndex(inventory, index) {
+  console.log('This is a ' + inventory[index].car-make + inventory[index].car-model);
+}
+getCarInfoByIndex(module.exports, 0);
 /**
  * ### Challenge `getLastCarInfo`
  * 
